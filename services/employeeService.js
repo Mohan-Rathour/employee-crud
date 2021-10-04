@@ -1,4 +1,5 @@
-let Employee = require('../models/employee');
+const Employee = require('../models/employee');
+const request = require('request');
 
 
 let Q = require('q');
@@ -10,7 +11,7 @@ let getEmployeeObj = (obj) => {
     employee['department']= obj.department;
     return employee
 }
-
+ 
 module.exports =  {
     
     getEmployees: () => {
@@ -33,9 +34,8 @@ module.exports =  {
         Employee.find({_id: id}, (err, data)=>  {
             if(err) {
                 deffer.reject(err)
-            }
-            deffer.resolve(data);
-            
+            } 
+            deffer.resolve(data[0]);
         });
         return deffer.promise;
         

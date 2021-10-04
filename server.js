@@ -22,7 +22,7 @@ routes(appServer);
 //appServer.get('/api/employees', EmployeeController.getEmployee());
 
 appServer.get('/', function(req, res){
-    res.send({"name": "MicroService appServerlication"});
+    res.send({"name": "MicroService app"});
 });
 
 const PORT = process.env.PORT || 4000;
